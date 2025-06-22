@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/ykmn0/go1fl-sprint6/pkg/morse"
+	"go1fl-sprint6/pkg/morse"
 )
 
 // Convert automatically detects if input is morse code or text and converts accordingly

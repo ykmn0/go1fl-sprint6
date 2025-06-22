@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ykmn0/go1fl-sprint6/service"
+	"go1fl-sprint6/internal/service"
 )
 
 // IndexHandler serves the index.html page
