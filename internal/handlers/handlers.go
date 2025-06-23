@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"fmt"
-	"html/template"
 	"io"
 	"net/http"
 	"os"
@@ -18,14 +17,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-
-	tmpl, err := template.ParseFiles("index.html")
-	if err != nil {
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
-
-	tmpl.Execute(w, nil)
+	http.ServeFile(w, r, "index.html")
 }
 
 // UploadHandler handles file uploads and conversion
@@ -85,6 +77,6 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Return the conversion result
-	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.Write([]byte(result))
 }
